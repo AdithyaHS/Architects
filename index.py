@@ -6,6 +6,7 @@ from flask_cors import CORS
 from flask_pymongo import PyMongo
 from bson.json_util import dumps
 from pymongo import MongoClient
+from ZooKeeperHandler import ZookeeperHandler
 
 #create an instance of the Flask class for our web app
 app=Flask(__name__)
@@ -59,5 +60,6 @@ def find():
 
 
 if __name__ == '__main__':
+    zk=ZookeeperHandler();
+    zk.registerAuthService('149.165.171.39','5000');
     app.run(debug=True,host='0.0.0.0')
-
