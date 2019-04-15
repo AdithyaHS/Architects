@@ -16,15 +16,15 @@ CORS(app)
 projectsTableURI = 'mongodb://DHANUMAN:Target2018atiub@ds113855.mlab.com:13855/project_add'
 UsermanagementURI= 'mongodb://DHANUMAN:Target2018atiub@ds221115.mlab.com:21115/user_management'
 
-client = MongoClient(projectsTableURI)
+#client = MongoClient(projectsTableURI)
 client1= MongoClient(UsermanagementURI)
 
 #connecting to databases
-db = client.project_add
+#db = client.project_add
 db1=client1.user_management
 
 #creation of indexes
-db.project.create_index([('$**', 'text')])
+#db.project.create_index([('$**', 'text')])
 db1.users.create_index([('$**', 'text')])
 
 #Create Routes
@@ -46,7 +46,7 @@ def find():
         return json.dumps(contentsfromBothDB)
 
 
-    else:
+    '''else:
         projects = db.project
         users = db1.users
         ResultsfromProjects = projects.find()
@@ -56,7 +56,7 @@ def find():
         ListfromProjects = json.loads(resultfromProjects)
         ListfromUsers = json.loads(resultfromUsers)
         contentsfromBothDB = {"ListfromProjects": ListfromProjects, "ListfromUsers": ListfromUsers}
-        return json.dumps(contentsfromBothDB)
+        return json.dumps(contentsfromBothDB)'''
 
 
 if __name__ == '__main__':
