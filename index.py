@@ -5,7 +5,8 @@ from flask import render_template
 from flask_cors import CORS
 from flask_pymongo import PyMongo
 from bson.json_util import dumps
-#from pymongo import MongoClient
+import pymongo
+import ssl
 from ZooKeeperHandler import ZookeeperHandler
 
 #create an instance of the Flask class for our web app
