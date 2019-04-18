@@ -7,7 +7,7 @@ from flask_pymongo import PyMongo
 from bson.json_util import dumps
 import pymongo
 import ssl
-from ZooKeeperHandler import ZookeeperHandler
+#from ZooKeeperHandler import ZookeeperHandler
 
 #create an instance of the Flask class for our web app
 app=Flask(__name__)
@@ -27,7 +27,7 @@ client = pymongo.MongoClient("mongodb://hsadi:adash569@cluster0-shard-00-00-5zv8
 
 #connecting to databases
 #db = client.project_add
-db1=client("user_management")
+db1=client["user_management"]
 print(db1)
 #creation of indexes
 #db.project.create_index([('$**', 'text')])
@@ -35,6 +35,6 @@ print(db1)
 
 #Create Routes
 if __name__ == '__main__':
-    zk=ZookeeperHandler();
-    zk.registerAuthService('149.165.171.39','5000');
+    #zk=ZookeeperHandler();
+    #zk.registerAuthService('149.165.171.39','5000');
     app.run(debug=True,host='0.0.0.0')
