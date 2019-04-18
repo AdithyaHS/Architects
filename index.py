@@ -5,7 +5,7 @@ from flask import render_template
 from flask_cors import CORS
 from flask_pymongo import PyMongo
 from bson.json_util import dumps
-from pymongo import MongoClient
+#from pymongo import MongoClient
 from ZooKeeperHandler import ZookeeperHandler
 
 #create an instance of the Flask class for our web app
@@ -15,6 +15,19 @@ CORS(app)
 #Configurations for MongoDB
 projectsTableURI = 'mongodb://DHANUMAN:Target2018atiub@ds113855.mlab.com:13855/project_add'
 UsermanagementURI= 'mongodb+srv://hsadi:adash569@cluster0-5zv82.mongodb.net/test?retryWrites=true'
+
+
+
+const MongoClient = require('mongodb').MongoClient;
+const uri = "mongodb+srv://hsadi:adash569@cluster0-5zv82.mongodb.net/test?retryWrites=true";
+const client = new MongoClient(uri, { useNewUrlParser: true });
+client.connect(err => {
+  const collection = client.db("test").collection("devices");
+  // perform actions on the collection object
+  client.close();
+});
+
+
 #client = MongoClient(projectsTableURI)
 client1= MongoClient(UsermanagementURI)
 
