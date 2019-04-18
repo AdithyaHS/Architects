@@ -33,38 +33,6 @@ print(db1)
 #db1.users.create_index([('$**', 'text')])
 
 #Create Routes
-@app.route('/find/')
-def find():
-  print("test")
-  '''  ftext=request.args.get('ftext')
-    if(ftext):
-        user = db1.users
-        user1 = db.project
-        ResultsfromUsers = user.find({'$text': {'$search': ftext}})
-        ResultsfromProjects = user1.find({'$text': {'$search': ftext}})
-        resultsfromProjects = dumps(ResultsfromProjects)
-        resultsfromUsers = dumps(ResultsfromUsers)
-
-        ListfromProjects = json.loads(resultsfromProjects)
-        ListfromUsers = json.loads(resultsfromUsers)
-
-        contentsfromBothDB = {"ListfromProjects": ListfromProjects, "ListfromUsers": ListfromUsers}
-        return json.dumps(contentsfromBothDB)'''
-
-
-    '''else:
-        projects = db.project
-        users = db1.users
-        ResultsfromProjects = projects.find()
-        ResultsfromUsers = users.find()
-        resultfromProjects = dumps(ResultsfromProjects)
-        resultfromUsers = dumps(ResultsfromUsers)
-        ListfromProjects = json.loads(resultfromProjects)
-        ListfromUsers = json.loads(resultfromUsers)
-        contentsfromBothDB = {"ListfromProjects": ListfromProjects, "ListfromUsers": ListfromUsers}
-        return json.dumps(contentsfromBothDB)'''
-
-
 if __name__ == '__main__':
     zk=ZookeeperHandler();
     zk.registerAuthService('149.165.171.39','5000');
