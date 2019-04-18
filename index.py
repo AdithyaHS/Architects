@@ -3,7 +3,7 @@ import json
 import pprint
 from flask import render_template
 from flask_cors import CORS
-from flask_pymongo import PyMongo
+#from flask_pymongo import PyMongo
 from bson.json_util import dumps
 import pymongo
 import ssl
@@ -31,8 +31,37 @@ db1=client["user_management"]
 print(db1)
 #creation of indexes
 #db.project.create_index([('$**', 'text')])
-#db1.users.create_index([('$**', 'text')])
+db1.users.create_index([('$**', 'text')])
 
+@app.route('/find/')
+def find():
+    ftext=request.args.get('ftext')
+    if(ftext):
+        user = db1.users
+        #user1 = db.project
+        ResultsfromUsers = user.find({'$text': {'$search': ftext}})
+        #ResultsfromProjects = user1.find({'$text': {'$search': ftext}})
+        #resultsfromProjects = dumps(ResultsfromProjects)
+        resultsfromUsers = dumps(ResultsfromUsers)
+
+        #ListfromProjects = json.loads(resultsfromProjects)
+        ListfromUsers = json.loads(resultsfromUsers)
+
+        contentsfromBothDB = {"ListfromUsers": ListfromUsers}
+        return json.dumps(contentsfromBothDB)
+
+
+    '''else:
+        projects = db.project
+        users = db1.users
+        ResultsfromProjects = projects.find()
+        ResultsfromUsers = users.find()
+        resultfromProjects = dumps(ResultsfromProjects)
+        resultfromUsers = dumps(ResultsfromUsers)
+        ListfromProjects = json.loads(resultfromProjects)
+        ListfromUsers = json.loads(resultfromUsers)
+        contentsfromBothDB = {"ListfromProjects": ListfromProjects, "ListfromUsers": ListfromUsers}
+        return json.dumps(contentsfromBothDB)'''
 #Create Routes
 if __name__ == '__main__':
     #zk=ZookeeperHandler();
