@@ -14,7 +14,7 @@ CORS(app)
 
 #Configurations for MongoDB
 projectsTableURI = 'mongodb://DHANUMAN:Target2018atiub@ds113855.mlab.com:13855/project_add'
-UsermanagementURI= 'mongodb://DHANUMAN:Target2018atiub@ds221115.mlab.com:21115/user_management'
+UsermanagementURI= 'mongodb://DHANUMAN:Target2018atiub@ds221115.mlab.com:21115/user_management?retryWrites=true&ssl=true&ssl_cert_reqs=CERT_NONE'
 
 #client = MongoClient(projectsTableURI)
 client1= MongoClient(UsermanagementURI)
