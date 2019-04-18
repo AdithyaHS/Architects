@@ -18,31 +18,25 @@ UsermanagementURI= 'mongodb+srv://hsadi:adash569@cluster0-5zv82.mongodb.net/test
 
 
 
-const MongoClient = require('mongodb').MongoClient;
-const uri = "mongodb+srv://hsadi:adash569@cluster0-5zv82.mongodb.net/test?retryWrites=true";
-const client = new MongoClient(uri, { useNewUrlParser: true });
-client.connect(err => {
-  const collection = client.db("test").collection("devices");
-  // perform actions on the collection object
-  client.close();
-});
 
+client = pymongo.MongoClient("mongodb://hsadi:adash569@cluster0-shard-00-00-5zv82.mongodb.net:27017,cluster0-shard-00-01-5zv82.mongodb.net:27017,cluster0-shard-00-02-5zv82.mongodb.net:27017/test?ssl=true&replicaSet=Cluster0-shard-0&authSource=admin&retryWrites=true")
 
 #client = MongoClient(projectsTableURI)
-client1= MongoClient(UsermanagementURI)
+#client1= MongoClient(UsermanagementURI)
 
 #connecting to databases
 #db = client.project_add
-db1=client1.user_management
-
+db1=client("user_management")
+print(db1)
 #creation of indexes
 #db.project.create_index([('$**', 'text')])
-db1.users.create_index([('$**', 'text')])
+#db1.users.create_index([('$**', 'text')])
 
 #Create Routes
 @app.route('/find/')
 def find():
-    ftext=request.args.get('ftext')
+  print("test")
+  '''  ftext=request.args.get('ftext')
     if(ftext):
         user = db1.users
         user1 = db.project
@@ -55,7 +49,7 @@ def find():
         ListfromUsers = json.loads(resultsfromUsers)
 
         contentsfromBothDB = {"ListfromProjects": ListfromProjects, "ListfromUsers": ListfromUsers}
-        return json.dumps(contentsfromBothDB)
+        return json.dumps(contentsfromBothDB)'''
 
 
     '''else:
