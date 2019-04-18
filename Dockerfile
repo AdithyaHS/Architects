@@ -1,8 +1,6 @@
-FROM ubuntu:latest
+FROM holbertonschool/ubuntu-1404-python3
 MAINTAINER Deepak Hanumanthaiah "dhanuman@iu.edu"
-RUN apt-get update -y
-RUN apt-get install -y python-pip python-dev build-essential
 COPY . /index
 WORKDIR /index
-RUN pip install -r requirements.txt
-CMD ["python", "index.py"]
+RUN pip3 install -r requirements.txt
+CMD ["python3", "index.py"]
