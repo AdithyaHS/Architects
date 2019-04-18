@@ -31,7 +31,7 @@ db1=client["user_management"]
 print(db1)
 #creation of indexes
 #db.project.create_index([('$**', 'text')])
-db1.users.create_index([('$**', 'text')])
+#db1.users.create_index([('$**', 'text')])
 
 @app.route('/find/')
 def find():
