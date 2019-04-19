@@ -16,7 +16,7 @@ import java.net.URL;
 public class Application {
 
 	public static void main(String[] args){
-		SpringApplication.run(Application.class, args);
+		//SpringApplication.run(Application.class, args);
 		/*ZooKeeperConnection zooKeeperConnection=new ZooKeeperConnection();
 
 		ZooKeeper zoo=zooKeeperConnection.connect("149.165.171.39");
