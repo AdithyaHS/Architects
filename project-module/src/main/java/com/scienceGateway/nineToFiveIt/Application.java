@@ -17,7 +17,7 @@ public class Application {
 
 	public static void main(String[] args) throws InterruptedException, KeeperException, IOException {
 		SpringApplication.run(Application.class, args);
-		ZooKeeperConnection zooKeeperConnection=new ZooKeeperConnection();
+		/*ZooKeeperConnection zooKeeperConnection=new ZooKeeperConnection();
 
 		ZooKeeper zoo=zooKeeperConnection.connect("149.165.171.39");
 
@@ -37,7 +37,7 @@ public class Application {
 			systemipaddress = "Cannot Execute Properly";
 		}
 		System.out.println("Public IP Address: " + systemipaddress +"\n");
-		zooKeeperConnection.create("/ensemble/addProjects",(systemipaddress+":8080").getBytes());
+		zooKeeperConnection.create("/ensemble/addProjects",(systemipaddress+":8080").getBytes());*/
 	}
 
 }
