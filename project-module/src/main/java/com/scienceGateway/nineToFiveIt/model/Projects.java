@@ -12,7 +12,7 @@ public class Projects {
     @Id
     long projectId;
 
-    @Indexed(unique = true)
+    //@Indexed(unique = true)
     String projectName;
 
     String companyName;
