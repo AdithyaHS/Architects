@@ -24,8 +24,8 @@ db = client.project_add
 db1=client1.user_management
 
 #creation of indexes
-#db.project.create_index([('$**', 'text')])
-#db1.users.create_index([('$**', 'text')])
+db.project.create_index([('$**', 'text')])
+db1.users.create_index([('$**', 'text')])
 
 #Create Routes
 @app.route('/find/')
